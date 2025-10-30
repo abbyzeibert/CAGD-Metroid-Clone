@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//todo:
+//remove collider from wizard parts and replace with single collider on parent
+
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 10f;
@@ -30,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Jump();
+        CheckForGround();
     }
 
     private void FixedUpdate()
@@ -72,14 +77,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, wizardHeight))
         {
-            if (hit.transform.CompareTag("Ground"))
+            Debug.Log("Hit Something:" + hit.collider.gameObject.name);
+            if (hit.collider.CompareTag("Ground"))
             {
+                Debug.Log("Found ground");
                 grounded = true;
             }
-            else
-            {
-                StartCoroutine("CoyoteCountdown");
-            }
+            
+        }
+        else
+        {
+            StartCoroutine("CoyoteCountdown");
         }
     }
 

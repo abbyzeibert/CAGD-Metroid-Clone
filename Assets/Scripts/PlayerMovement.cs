@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float armMoveOnRotate = 1f;
     public GameObject arm;
+    public ArmRotate armScript;
     public Rigidbody rb;
 
     // Start is called before the first frame update
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Rotate(0, 180, 0);
             prevDirection = direction;
+            armScript.direction = direction;
             arm.transform.Translate(0, 0, (armMoveOnRotate * direction));
         }
     }

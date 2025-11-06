@@ -28,22 +28,15 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void Damage(GameObject toHurt, Collider other)
+    public void Damage(GameObject toHurt, int damage)
     {
-        int damage = 0;
-
-        if (other.CompareTag("PlayerProjectile"))
-        {
-            damage = other.GetComponent<Projectile>().damage;
-        }
-        else
-        {
-            damage = other.GetComponent<Enemy>().damage;
-        }
-
         if (toHurt.CompareTag("Player"))
         {
             playerHealth -= damage;
+            if(playerHealth <= 0)
+            {
+                GameOver();
+            }
         }
         else
         {
@@ -74,6 +67,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
         Debug.Log("Loaded Scene " + scene);
         StartCoroutine(WaitForSceneLoad(door));
+    }
+
+    public void GameOver()
+    {
+        player.SetActive(false);
     }
 
     IEnumerator WaitForSceneLoad(int door)

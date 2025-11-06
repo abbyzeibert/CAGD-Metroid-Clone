@@ -26,5 +26,10 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (other.GetComponent<Enemy>())
+        {
+            GameObject.Find("Game Manager").GetComponent<GameManager>().Damage(other.gameObject, damage);
+            Destroy(gameObject);
+        }
     }
 }

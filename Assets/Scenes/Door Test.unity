@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadsToDoor: 1
-  leadsToScene: 1
+  leadsToScene: 0
 --- !u!65 &317377036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -189,8 +189,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30592823, y: 1, z: 1}
-  m_Center: {x: 1.727036, y: 0, z: 0}
+  m_Size: {x: 0.5154543, y: 1, z: 1}
+  m_Center: {x: 2.015596, y: 0, z: 0}
 --- !u!1001 &433655312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +248,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c748e07b09f18464997b293b06936678, type: 3}
+--- !u!1 &628990808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628990810}
+  - component: {fileID: 628990809}
+  m_Layer: 0
+  m_Name: Door Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &628990809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628990808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934158968a37fce46a2b5af2430929de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorSpawns:
+  - {fileID: 317377033}
+  - {fileID: 2136767630}
+--- !u!4 &628990810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628990808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.5619125, y: 0.3189878, z: -3.0155706}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadsToDoor: 0
-  leadsToScene: 1
+  leadsToScene: 0
 --- !u!65 &2136767633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -870,73 +917,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8711529, y: 1, z: 1}
-  m_Center: {x: -1.6595087, y: 0, z: 0}
---- !u!1001 &1510777236317928872
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5600710258369265135, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: doorSpawns.Array.data[0]
-      value: 
-      objectReference: {fileID: 317377033}
-    - target: {fileID: 5600710258369265135, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: doorSpawns.Array.data[1]
-      value: 
-      objectReference: {fileID: 2136767630}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.5619125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3189878
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.0155706
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7191590736009071815, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8856404345853047693, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
-      propertyPath: m_Name
-      value: Door Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 49e1ae98c1c8fc54fa34966447f52b53, type: 3}
+  m_Size: {x: 0.52162933, y: 1, z: 1}
+  m_Center: {x: -2.1248035, y: 0, z: 0}
 --- !u!1001 &8482920506051930853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1006,6 +988,6 @@ SceneRoots:
   - {fileID: 2062219858}
   - {fileID: 433655312}
   - {fileID: 924164083}
-  - {fileID: 1510777236317928872}
+  - {fileID: 628990810}
   - {fileID: 317377034}
   - {fileID: 2136767631}

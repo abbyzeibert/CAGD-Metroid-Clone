@@ -79,10 +79,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, wizardHeight))
         {
-            Debug.Log("Hit Something:" + hit.collider.gameObject.name);
             if (hit.collider.CompareTag("Ground"))
             {
-                Debug.Log("Found ground");
                 grounded = true;
             }
             

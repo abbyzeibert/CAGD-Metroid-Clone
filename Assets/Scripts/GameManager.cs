@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public bool[] itemIDs = new bool[4];
 
+    private DoorManager doors;
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,5 +72,17 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(int scene, int door)
     {
         SceneManager.LoadScene(scene);
+        Debug.Log("Loaded Scene " + scene);
+        StartCoroutine(WaitForSceneLoad(door));
+    }
+
+    IEnumerator WaitForSceneLoad(int door)
+    {
+        yield return new WaitForSeconds(0.05f);
+        doors = GameObject.Find("Door Manager").GetComponent<DoorManager>();
+        player = GameObject.Find("Wizard!!");
+
+        player.transform.position = doors.doorSpawns[door].transform.position;
+        Debug.Log("Moved player to " + player.transform.position);
     }
 }

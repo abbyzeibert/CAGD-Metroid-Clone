@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Player Control Tester.unity
+    guid: 92b15b0a5f95c0d45827abb3000a31d6
+  - enabled: 1
+    path: Assets/Scenes/Door Test.unity
+    guid: 42313207fb5a1e84e8a6ff91a844b1ce
   m_configObjects: {}

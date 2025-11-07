@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 608336423639783999}
   m_Layer: 0
   m_Name: StrongDoor
-  m_TagString: Untagged
+  m_TagString: StrongDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

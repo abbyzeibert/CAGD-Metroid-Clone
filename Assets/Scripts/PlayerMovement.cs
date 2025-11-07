@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float wizardHeight = 1.5f;
 
     public float coyoteTime = 0.2f;
-    public float jumpTimer = 0.2f;
+    public float jumpTimer = 0.5f;
 
     public bool grounded = false;
     public bool justJumped = false;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        transform.position += speed * Vector3.left * Input.GetAxis("Horizontal") * Time.deltaTime;
+        rb.MovePosition(transform.position + (speed * Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime));
 
         direction = (int)Input.GetAxisRaw("Horizontal");
         Turn();

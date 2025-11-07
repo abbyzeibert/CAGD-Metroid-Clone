@@ -6,6 +6,7 @@ public class ArmRotate : MonoBehaviour
 {
     public int direction = 1;
 
+    private float zPos = -0.581f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,35 +19,38 @@ public class ArmRotate : MonoBehaviour
     {
         if (Input.GetKey("up"))
         {
-            if(direction == 1)
+            if(direction == -1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, -45);
             }
-            else if(direction == -1)
+            else if(direction == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, -135);
+                transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
             }
+            transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
         }
         else if (Input.GetKey("down"))
         {
-            if (direction == 1)
+            if (direction == -1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 45);
             }
-            else if (direction == -1)
+            else if (direction == 1)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 135);
             }
+            transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
         }
         else
         {
             if(direction == 1)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else if(direction == -1)
             {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }

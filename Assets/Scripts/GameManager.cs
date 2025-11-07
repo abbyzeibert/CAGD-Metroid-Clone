@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
 
     private int playerHealth = 99;
     private int maxPlayerHealth = 99;
+    public GameObject playerProjectile;
 
     public bool[] itemIDs = new bool[4];
 
     private DoorManager doors;
     private GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,21 @@ public class GameManager : MonoBehaviour
     {
         maxPlayerHealth += amount;
         playerHealth = maxPlayerHealth;
+    }
+
+    public void ChangeJumpForce(float amount)
+    {
+        player.GetComponent<PlayerMovement>().jumpForce = amount;
+    }
+
+    public void ChangeProjectile(GameObject newProjectile)
+    {
+        playerProjectile = newProjectile;
+    }
+
+    public void CollectItem(int ID)
+    {
+        itemIDs[ID] = true;
     }
 
     public void ChangeScene(int scene, int door)

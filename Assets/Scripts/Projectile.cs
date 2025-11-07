@@ -31,5 +31,19 @@ public class Projectile : MonoBehaviour
             GameObject.Find("Game Manager").GetComponent<GameManager>().Damage(other.gameObject, damage);
             Destroy(gameObject);
         }
+        else if (other.CompareTag("WeakDoor"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("StrongDoor"))
+        {
+            if(damage > 1)
+            {
+                Destroy(other.gameObject);
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

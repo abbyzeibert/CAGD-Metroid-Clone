@@ -9,6 +9,8 @@ TagManager:
   - Platform
   - PlayerProjectile
   - Enemy
+  - WeakDoor
+  - StrongDoor
   layers:
   - Default
   - TransparentFX

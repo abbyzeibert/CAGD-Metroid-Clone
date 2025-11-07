@@ -13,6 +13,8 @@ public class ProjectileLauncher : MonoBehaviour
     public float fireTime = 2f;
     public float waitTime = 5f;
 
+    private float zPos = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +34,12 @@ public class ProjectileLauncher : MonoBehaviour
             canFire = false;
             StartCoroutine("FireWait");
         }
+        transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
     }
 
     private void Fire()
     {
+        projectile = GameObject.Find("Game Manager").GetComponent<GameManager>().playerProjectile;
         Instantiate(projectile, transform.position, transform.rotation);
     }
 

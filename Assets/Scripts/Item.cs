@@ -2,11 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Abby Zeibert
+ * 11/07/2025
+ * Handles given item's ID and function
+ */
+
 public class Item : MonoBehaviour
 {
-
+    /// <summary>
+    /// IMPORTANT: Each item instance needs its own unique ID, make sure to update Game Manager's 
+    /// itemIDs array with more indexes if adding more
+    /// </summary>
     public int ID = 0;
 
+    /// <summary>
+    /// only used for projectile upgrades, can be NULL otherwise
+    /// </summary>
     public GameObject newProjectile;
 
     private GameManager manager;
@@ -14,6 +26,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if item has already been collected, destroy it on start
         manager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         if(manager.itemIDs[ID])
@@ -24,6 +37,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //when player collides with an item, determines its function by its item ID, collects it, and destroys it
         if (other.CompareTag("Player"))
         {
             switch (ID)

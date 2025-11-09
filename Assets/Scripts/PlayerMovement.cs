@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, wizardHeight))
         {
-            if (hit.collider.CompareTag("Ground"))
+            if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Platform"))
             {
                 grounded = true;
             }

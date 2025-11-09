@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Player Control Tester.unity
-    guid: 92b15b0a5f95c0d45827abb3000a31d6
+    path: Assets/Scenes/Main Menu.unity
+    guid: 9996340c32752cd4a806134e0500b7c7
   - enabled: 1
-    path: Assets/Scenes/Door Test.unity
-    guid: 42313207fb5a1e84e8a6ff91a844b1ce
+    path: Assets/Scenes/Level1.unity
+    guid: 55868b20d7f97cb4893ea4c53c97b2ac
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 862ff32df41ddbf459cebc2f35056a8f
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 368d9ac6009d7fb4886b5c53197ee107
   m_configObjects: {}

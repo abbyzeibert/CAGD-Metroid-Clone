@@ -10,22 +10,20 @@ using UnityEngine;
 
 public class DoorLeadsTo : MonoBehaviour
 {
-    /*                                                                                              *
-     *                                          ! IMPORTANT !                                       *
-     *                                                                                              *
-     *  Leads to Door: Set to the index of its corresponding door in the next scene's Door Manager  *
-     *                                                                                              *
-     *  Leads to Scene: Set to the index of the scene this door leads to as shown in Build Settings *
-     *                                                                                              *
-     *  IN SCENE: the object with this script should have its collider where the door is and its    *
-     *              pivot point where the player will respawn when coming back through              *
-     *                                                                                              *
-     *                  DO NOT PUT THE PIVOT POINT AND COLLIDER IN THE SAME SPOT                    *
-     *                                                                                              *
-     */
-
+    /// <summary>
+    /// Set to the index of its corresponding door in the next scene's Door Manager
+    /// </summary>
     public int leadsToDoor = 0;
+
+    /// <summary>
+    /// Set to the index of the scene this door leads to as shown in Build Settings
+    /// </summary>
     public int leadsToScene = 0;
+
+    /// <summary>
+    /// Set to where the player will spawn when coming through this door, make sure it is NOT overlapping the door's collider
+    /// </summary>
+    public Vector3 spawnPoint;
 
     private void OnTriggerEnter(Collider other)
     {

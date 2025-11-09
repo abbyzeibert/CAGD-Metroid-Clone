@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /*
  * Abby Zeibert
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     private int playerHealth = 99;
     private int maxPlayerHealth = 99;
     public int jumpForce = 10;
+    public bool invincible = false;
     public GameObject playerProjectile;
 
     //item ID array, true means item has been collected already
@@ -24,12 +27,18 @@ public class GameManager : MonoBehaviour
     private DoorManager doors;
     private GameObject player;
 
+    //UI variables
+    public TMP_Text healthText;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //makes manager and its data persist between scenes
         DontDestroyOnLoad(this.gameObject);
+
+        //for testing, gets the player in the current scene
+        player = GameObject.Find("Wizard!!");
     }
 
     /// <summary>
@@ -42,10 +51,15 @@ public class GameManager : MonoBehaviour
         //if player is being hurt, decrease health and check for gameover
         if (toHurt.CompareTag("Player"))
         {
-            playerHealth -= damage;
-            if(playerHealth <= 0)
+            if (!invincible)
             {
-                GameOver();
+                playerHealth -= damage;
+                healthText.text = playerHealth + " / " + maxPlayerHealth;
+                if (playerHealth <= 0)
+                {
+                    GameOver();
+                }
+                StartCoroutine(IFrames());
             }
         }
         //only other thing that can be damaged are enemies, updates their script with damage taken
@@ -70,6 +84,8 @@ public class GameManager : MonoBehaviour
         {
             playerHealth += amount;
         }
+
+        healthText.text = playerHealth + " / " + maxPlayerHealth;
     }
 
     /// <summary>
@@ -81,6 +97,7 @@ public class GameManager : MonoBehaviour
         //increases the max health, then heals the player to that new amount
         maxPlayerHealth += amount;
         playerHealth = maxPlayerHealth;
+        healthText.text = playerHealth + " / " + maxPlayerHealth;
     }
 
     /// <summary>
@@ -131,6 +148,20 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Makes the player blink by disabling and enabling the mesh renderers of its body parts
+    /// </summary>
+    public void Blink()
+    {
+        MeshRenderer[] body = player.transform.GetComponentsInChildren<MeshRenderer>();
+
+        //for each body part, sets the mesh render's activeness to the opposite of its current state
+        for(int i = 0; i < body.Length; i++)
+        {
+            body[i].enabled = !body[i].enabled;
+        }
+    }
+
+    /// <summary>
     /// Coroutine to handle spawn location on transitioning scenes, needed to ensure
     ///  Door Manager and Player are loaded before trying to access them
     /// </summary>
@@ -144,6 +175,33 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Wizard!!");
 
         //moves player to given door's spawn position
-        player.transform.position = doors.doorSpawns[door].transform.position;
+        player.transform.position = doors.doorSpawns[door].GetComponent<DoorLeadsTo>().spawnPoint;
+    }
+
+    /// <summary>
+    /// Coroutine to give player invincibility for 5 seconds after taking damage
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator IFrames()
+    {
+        invincible = true;
+
+        //starts blinking function and waits 5 seconds before making player vulnerable again
+        InvokeRepeating("Blink", 0, 0.1f);
+        yield return new WaitForSeconds(5);
+
+        invincible = false;
+
+        //turns off blinking and sets player's mesh renderers back to true in case blink
+        // function ended with them disabled
+        CancelInvoke("Blink");
+
+        MeshRenderer[] body = player.transform.GetComponentsInChildren<MeshRenderer>();
+
+        for (int i = 0; i < body.Length; i++)
+        {
+            body[i].enabled = true;
+        }
+
     }
 }

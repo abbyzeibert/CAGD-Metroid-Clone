@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     public bool invincible = false;
     public GameObject playerProjectile;
 
+    //ok I know this is probably a bad way of doing this but the game over screen needs
+    //a game object with the start and exit functions in the scene for the buttons to work
+    //and this is the fastest way I can think to get that working and not duplicate the manager
+    public bool singleton = false;
+
     //item ID array, true means item has been collected already
     public bool[] itemIDs = new bool[4];
 
@@ -35,7 +40,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //makes manager and its data persist between scenes
-        DontDestroyOnLoad(this.gameObject);
+        if (singleton)
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
 
         //for testing, gets the player in the current scene
         player = GameObject.Find("Wizard!!");
@@ -134,9 +142,15 @@ public class GameManager : MonoBehaviour
     /// <param name="door"> Door index in next scene's Door Manager to spawn from </param>
     public void ChangeScene(int scene, int door)
     {
+        StartCoroutine(WaitForSceneLoad(door));
         SceneManager.LoadScene(scene);
         Debug.Log("Loaded Scene " + scene);
-        StartCoroutine(WaitForSceneLoad(door));
+    }
+
+    public void StartGame()
+    {
+        ChangeScene(1, 2);
+        healthText.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -145,6 +159,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         player.SetActive(false);
+        ChangeScene(4, 0);
+        healthText.gameObject.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     /// <summary>

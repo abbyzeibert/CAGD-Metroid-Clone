@@ -60,4 +60,12 @@ public class Item : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// makes item float/spin
+    /// </summary>
+    private void ItemSpin()
+    {
+
+    }
+
 }

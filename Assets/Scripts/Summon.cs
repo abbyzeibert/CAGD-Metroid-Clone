@@ -25,32 +25,24 @@ public class Summon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("SpawnEnemy", 1, enemySpawnRate);
     }
 
     // Update is called once per frame
     void Update()
     {
-        InvokeRepeating("SpawnEnemy", 1, enemySpawnRate);
+       
     }
-
-    //ok so Boss hp = 100, for every spawned enemy defeated WITH A PROJECTILE 
-    //boss hp -10
-
 
 
     private void SpawnEnemy()
     {
-        int randnum = Random.Range(0, 12);
-        if (randnum <= 3)
+        int randnum = Random.Range(0, 10);
+        if (randnum < 6)
             Instantiate(ghostPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        else if (randnum > 3 && randnum <= 6)
-        Instantiate(ghostPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        else if (randnum >= 6)
+        Instantiate(skeletonPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
 
-        if (skeletonPrefab.transform.position.y < -4)
-        {
-            Destroy(skeletonPrefab);
-        }
     }
 
 

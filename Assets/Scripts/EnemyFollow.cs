@@ -12,7 +12,7 @@ public class EnemyFollow : MonoBehaviour
 {
 
    
-    public Transform target;
+    private Transform target;
     public float speed = 5.0f;
     public float range = 10f;
 
@@ -20,12 +20,14 @@ public class EnemyFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //sets the target as the player
+        target = GameObject.Find("Wizard!!").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //moves enemy towards player current position
         if (Vector3.Distance(transform.position, target.position) < range)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);

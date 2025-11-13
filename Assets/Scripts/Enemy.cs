@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -16,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     public bool boss = false;
     public bool minion = false;
-    
+
     private void Update()
     {
         //destroys the enemy when they are out of health
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
             }
             else if (boss)
             {
-                GameObject.Find("Game Manager").GetComponent<GameManager>().ChangeScene(7,0);
+                GameObject.Find("Game Manager").GetComponent<GameManager>().ChangeScene(7, 0);
             }
 
             Destroy(gameObject);
@@ -42,6 +43,16 @@ public class Enemy : MonoBehaviour
         {
             GameObject.Find("Game Manager").GetComponent<GameManager>().Damage(other.gameObject, damage);
         }
+        //if a minion hits the spikes in the final level, destroy that enemy
+        else if (other.tag == "Ground")
+        {
+            if (minion) 
+            { 
+                Destroy(gameObject);
+            }
+        }
+
     }
+
 
 }

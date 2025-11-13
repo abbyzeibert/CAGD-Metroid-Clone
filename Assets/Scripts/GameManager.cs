@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     //player variables
     private int playerHealth = 99;
     private int maxPlayerHealth = 99;
-    public int jumpForce = 10;
+    public float jumpForce = 10f;
     public bool invincible = false;
     public GameObject playerProjectile;
 
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     /// <param name="amount"> What the jump force should be set to </param>
     public void ChangeJumpForce(float amount)
     {
-        player.GetComponent<PlayerMovement>().jumpForce = amount;
+        jumpForce = amount;
     }
     
     /// <summary>

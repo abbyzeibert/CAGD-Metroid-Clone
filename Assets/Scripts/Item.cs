@@ -17,6 +17,11 @@ public class Item : MonoBehaviour
     public int ID = 0;
 
     /// <summary>
+    /// amount to heal player, only used by health pack
+    /// </summary>
+    public int toHeal = 0;
+
+    /// <summary>
     /// only used for projectile upgrades, can be NULL otherwise
     /// </summary>
     public GameObject newProjectile;
@@ -43,7 +48,7 @@ public class Item : MonoBehaviour
             switch (ID)
             {
                 case 0:
-                    manager.Heal(50);
+                    manager.Heal(toHeal);
                     break;
                 case 1:
                     manager.IncreaseMaxHealth(100);

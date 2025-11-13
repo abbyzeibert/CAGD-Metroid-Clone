@@ -38,7 +38,7 @@ public class ProjectileLauncher : MonoBehaviour
     void Update()
     {
         //if script is on the player and cooldown has stopped, fires a projectile and starts cooldown
-        if (isPlayer && Input.GetKeyDown("space") && canFire)
+        if (isPlayer && Input.GetKey("space") && canFire)
         {
             Fire();
             canFire = false;

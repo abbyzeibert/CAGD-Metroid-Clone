@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         player.SetActive(false);
-        ChangeScene(4, 0);
+        ChangeScene(6, 0);
         healthText.gameObject.SetActive(false);
     }
 

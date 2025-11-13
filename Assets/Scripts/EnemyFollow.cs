@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Kafka Suenishi
+ * 11/10/25
+ * makes enemy track and follow player if player gets within certain distance
+ */
+
 public class EnemyFollow : MonoBehaviour
 {
 

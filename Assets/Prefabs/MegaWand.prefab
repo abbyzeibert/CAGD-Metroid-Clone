@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3218106235805356190}
   - component: {fileID: 1184401961793943067}
+  - component: {fileID: 6634447172834931642}
   m_Layer: 0
   m_Name: MegaWand
   m_TagString: Untagged
@@ -49,6 +50,27 @@ MonoBehaviour:
   ID: 2
   toHeal: 0
   newProjectile: {fileID: 6090585469712590615, guid: 0dfbcd42f93167440b56e9d51931cacf, type: 3}
+--- !u!65 &6634447172834931642
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793095647564105753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0791016, y: 1, z: 1}
+  m_Center: {x: -1.7536602, y: 0, z: 0}
 --- !u!1 &6668287491736877222
 GameObject:
   m_ObjectHideFlags: 0

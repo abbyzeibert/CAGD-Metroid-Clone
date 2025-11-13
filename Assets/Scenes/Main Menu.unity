@@ -1059,7 +1059,7 @@ MonoBehaviour:
   invincible: 0
   playerProjectile: {fileID: 6981161990387475220, guid: 218ff309598e63a4bad69d68d13b5132, type: 3}
   singleton: 1
-  itemIDs: 00000000
+  itemIDs: 000000000000
   healthText: {fileID: 254000465}
 --- !u!4 &754503872
 Transform:

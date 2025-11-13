@@ -48,6 +48,8 @@ public class Item : MonoBehaviour
             switch (ID)
             {
                 case 0:
+                case 4:
+                case 5:
                     manager.Heal(toHeal);
                     break;
                 case 1:

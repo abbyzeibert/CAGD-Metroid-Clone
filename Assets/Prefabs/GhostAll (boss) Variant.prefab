@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: range
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4700369173586543513, guid: c302c3009172abb468eb1b3e4c90865d, type: 3}
+      propertyPath: minion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8828243781916696831, guid: c302c3009172abb468eb1b3e4c90865d, type: 3}
       propertyPath: m_Name
       value: GhostAll (boss) Variant

@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonAll (Boss) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9013503240540636021, guid: 7e0bb0901ae1e0847811122a564d1598, type: 3}
+      propertyPath: minion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

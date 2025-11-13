@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 9013503240540636021}
   - component: {fileID: 6679220914453708582}
   - component: {fileID: 5813228413836232570}
+  - component: {fileID: 8939814801733515290}
   m_Layer: 0
   m_Name: SkeletonHitbox
   m_TagString: Enemy
@@ -416,6 +417,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5619630747515272738, guid: 1505dd8f8fbc66542bb1bd1aac3b2ac9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5813228413836232570}
+    - targetCorrespondingSourceObject: {fileID: 5619630747515272738, guid: 1505dd8f8fbc66542bb1bd1aac3b2ac9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8939814801733515290}
   m_SourcePrefab: {fileID: 100100000, guid: 1505dd8f8fbc66542bb1bd1aac3b2ac9, type: 3}
 --- !u!114 &9013503240540636021
 MonoBehaviour:
@@ -474,3 +478,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   range: 10
+--- !u!136 &8939814801733515290
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797374366512399191}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.9999999
+  m_Direction: 1
+  m_Center: {x: -0.0000009536743, y: 0, z: 0.000000031897798}

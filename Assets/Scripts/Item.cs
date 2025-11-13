@@ -59,7 +59,7 @@ public class Item : MonoBehaviour
                     manager.ChangeProjectile(newProjectile);
                     break;
                 case 3:
-                    manager.ChangeJumpForce(20f);
+                    manager.ChangeJumpForce(15f);
                     break;
             }
             manager.CollectItem(ID);

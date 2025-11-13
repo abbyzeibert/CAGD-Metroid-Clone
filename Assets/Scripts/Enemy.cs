@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         {
             if (minion)
             {
-                GameObject.Find("Game Manager").GetComponent<GameManager>().Damage(GameObject.Find("FinalBoss"), 50);
+                GameObject.Find("Game Manager").GetComponent<GameManager>().Damage(GameObject.Find("FinalBoss"), 10);
             }
             else if (boss)
             {
